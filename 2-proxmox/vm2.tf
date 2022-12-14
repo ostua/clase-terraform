@@ -4,7 +4,7 @@ resource "proxmox_vm_qemu" "vm2" {
   desc        = "A test VM"
   pool        = "ISI-terraform"
 
-  iso = "nfs-coria:iso/debian-11.2.0-amd64-netinst.iso"
+  iso = "nfs-coria:iso/debian-11.5.0-amd64-netinst.iso"
   # OS, do not use this, especially for PXE boot VMs
   agent            = 0
   automatic_reboot = false
@@ -33,7 +33,7 @@ resource "proxmox_vm_qemu" "vm2" {
     backup      = 0
     cache       = "none"
     discard     = "on"
-    iothread    = 1
+    iothread    = 0
     mbps        = 0
     mbps_rd     = 0
     mbps_rd_max = 0
