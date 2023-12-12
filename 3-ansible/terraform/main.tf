@@ -22,7 +22,7 @@ resource "proxmox_lxc" "container" {
   start        = "true"
 
   rootfs {
-    storage = "local-lvm"
+    storage = "local-hdd"
     size    = var.rootfs_size
   }
   swap = 0
