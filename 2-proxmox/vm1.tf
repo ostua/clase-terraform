@@ -28,9 +28,10 @@ resource "proxmox_vm_qemu" "vm1" {
   sockets                = 1
   tablet                 = true
   vcpus                  = 0
+  vm_state               = "stopped"
 
   disk {
-    backup      = 0
+    backup      = false
     cache       = "none"
     discard     = "on"
     iothread    = 0
@@ -42,7 +43,7 @@ resource "proxmox_vm_qemu" "vm1" {
     replicate   = 0
     size        = "2G"
     ssd         = 1
-    storage     = "local-lvm"
+    storage     = "local-hdd"
     type        = "scsi"
   }
 
