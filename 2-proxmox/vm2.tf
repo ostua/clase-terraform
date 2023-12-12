@@ -21,16 +21,16 @@ resource "proxmox_vm_qemu" "vm2" {
   memory                 = 9000
   numa                   = false
   onboot                 = false
-  oncreate               = true
   os_type                = "Linux 5.x - 2.6 Kernel"
   qemu_os                = "l26"
   scsihw                 = "virtio-scsi-pci"
   sockets                = 1
   tablet                 = true
   vcpus                  = 0
+  vm_state               = "stopped"
 
   disk {
-    backup      = 0
+    backup      = false
     cache       = "none"
     discard     = "on"
     iothread    = 0
@@ -42,7 +42,7 @@ resource "proxmox_vm_qemu" "vm2" {
     replicate   = 0
     size        = "2G"
     ssd         = 1
-    storage     = "local-lvm"
+    storage     = "local-hdd"
     type        = "scsi"
   }
 
