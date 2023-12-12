@@ -21,7 +21,6 @@ resource "proxmox_vm_qemu" "vm1" {
   memory                 = 9000
   numa                   = false
   onboot                 = false
-  oncreate               = true
   os_type                = "Linux 5.x - 2.6 Kernel"
   qemu_os                = "l26"
   scsihw                 = "virtio-scsi-pci"
