@@ -3,7 +3,7 @@ terraform {
   required_providers {
     docker = {
       source  = "kreuzwerker/docker"
-      version = "~> 2.13.0"
+      version = "3.0.2"
     }
   }
 }
@@ -19,10 +19,10 @@ resource "docker_image" "nginx" {
 
 # defino otro recurso "nginx" para un módulo "docker_container" 
 resource "docker_container" "nginx" {
-  image = docker_image.nginx.latest
+  image = docker_image.nginx.image_id
   name  = "nginx-ostua"
   ports {
     internal = 80
-    external = 6000
+    external = 5555
   }
 }

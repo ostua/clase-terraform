@@ -15,7 +15,6 @@ resource "proxmox_virtual_environment_container" "container" {
         gateway = "10.20.30.1"
       }
     }
-
   }
 
   clone {
