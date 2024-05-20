@@ -5,7 +5,10 @@ resource "proxmox_virtual_environment_vm" "vm2" {
 
   pool_id = "ISI-terraform"
   node_name = "asterix"
-  vm_id     = 3999
+# el VMID debe ser unico en el cluster.
+# si lo dejo comentado coge el primero libre.
+#  vm_id     = 3999
+
   started = true
 
   stop_on_destroy = true
