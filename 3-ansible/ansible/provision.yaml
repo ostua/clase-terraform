@@ -4,10 +4,9 @@
   tasks:
      - name: Update and upgrade apt packages
        become: yes
-       ignore_errors: yes
-       failed_when: "'FAILED' in command_result.stderr"
+       ignore_errors: no
        apt:
-         upgrade: no
+         upgrade: yes
          update_cache: yes
          cache_valid_time: 86400 #One day
 

@@ -27,7 +27,7 @@ resource "proxmox_virtual_environment_container" "container" {
   provisioner "local-exec" {
     working_dir = "../ansible/"
 #  ¡¡¡esta dirección IP debe ser la misma de arriba (no quitar la coma después de la IP)!!!
-    command     = "ansible-playbook -u root --key-file clave_ssh -i 10.20.30.99, provision.yaml"
+    command     = "ansible-playbook -v -T 60 -u root --key-file clave_ssh -i 10.20.30.99, provision.yaml"
   }
 
 }
