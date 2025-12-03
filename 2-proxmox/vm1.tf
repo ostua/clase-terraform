@@ -9,36 +9,31 @@ resource "proxmox_virtual_environment_vm" "vm1" {
 # si lo dejo comentado coge el primero libre.
 #  vm_id     = 3998
  
-
   stop_on_destroy = true
 
   cpu {
-    cores = 4
+    cores = 2
   }
 
   memory {
-    dedicated = 8000
-    floating = 8000
+    dedicated = 2048
+    floating = 2048
   }
 
   disk {
     datastore_id = "local-ssd"
     file_format = "raw"
     interface    = "scsi0"
-    size = 16
+    size = 4
   }
 
   cdrom {
     enabled = true
-    #file_id = "nfs-coria:iso/ubuntu-22.04.4-desktop-amd64.iso"
-    file_id = "nfs-coria:iso/ubuntu-24.04-desktop-amd64.iso"
-    #file_id = "nfs-coria:iso/ubuntu-24.04-live-server-amd64.iso"
+    file_id = "nfs-coria:iso/ostua-ubuntu-24.04.3-live-server-amd64.iso"
     interface    = "ide0"
   }
 
   network_device {
     bridge = "vmbr0"
   }
-
 }
-
