@@ -10,9 +10,8 @@ resource "proxmox_virtual_environment_vm" "vm2" {
 #  vm_id     = 3999
 
   started = true
-
   stop_on_destroy = true
-  timeout_clone = 60
+
   timeout_create = 60
   timeout_migrate  = 60
   timeout_reboot = 60
@@ -21,24 +20,24 @@ resource "proxmox_virtual_environment_vm" "vm2" {
   timeout_stop_vm = 60
 
   cpu {
-    cores = 2
+    cores = 1
   }
 
   memory {
-    dedicated = 4000
-    floating = 4000
+    dedicated = 1024
+    floating = 1024
   }
 
   disk {
     datastore_id = "local-ssd"
     file_format = "raw"
     interface    = "scsi0"
-    size = 16
+    size = 2
   }
 
   cdrom {
     enabled = true
-    file_id = "nfs-coria:iso/debian-12.5.0-amd64-netinst.iso"
+    file_id = "nfs-coria:iso/ostua-debian-13.1.0-amd64-netinst.iso"
     interface    = "ide0"
   }
 
@@ -47,4 +46,3 @@ resource "proxmox_virtual_environment_vm" "vm2" {
   }
 
 }
-
